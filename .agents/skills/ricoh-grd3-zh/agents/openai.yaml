@@ -1,0 +1,4 @@
+interface:
+  display_name: "GRD3 简体中文补丁"
+  short_description: "核对理光 GRD3 机型与模块版本，在电脑生成并校验简体中文补丁"
+  default_prompt: "使用 $ricoh-grd3-zh 核对我的机身及固件文件，在电脑上生成并校验中文补丁；先完成文件准备。"

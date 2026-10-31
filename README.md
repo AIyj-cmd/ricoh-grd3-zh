@@ -8,6 +8,8 @@
 
 仓库提供 Python 补丁工具和研究记录。原版固件由使用者从[理光官网下载](https://www.ricoh-imaging.co.jp/english/r_dc/download/firmware/grd3/)，在自己的电脑上生成补丁。仓库及 Release 均不包含理光固件、机身 NAND 备份或照片。
 
+**想让 AI 助手帮你操作？** 已提供 Codex、Claude Code、腾讯 WorkBuddy 的 [Agent 调用入口与提示词](docs/agents.md)。
+
 ## 效果与改动
 
 - 将原日语槽指向机身已有的简体中文资源；英文槽保持原样。
@@ -31,6 +33,20 @@
 **以这组配置为当前测试范围。其他版本请先停止，不要修改脚本里的校验值强行运行。** 若 MAIN 低于 2.50，应先按理光说明使用官方固件升级，再检查模块版本。
 
 查询版本：关机后按住 **下方向／微距（花朵）键**，再长按 **回放 ▶** 约 2–3 秒。更新固件用的是 **上方向键**，两者不要混淆。参见[理光 GRD3 更新说明](https://www.ricoh-imaging.co.jp/english/r_dc/download/firmware/docs/grd3_fwup_en.pdf)。
+
+## 让 Agent 帮你准备
+
+把下面这段发给能读取本地文件、执行终端命令的助手：
+
+```text
+请使用 https://github.com/AIyj-cmd/ricoh-grd3-zh 项目帮我准备 GRD3 中文补丁。
+克隆仓库并读取 AGENTS.md 和 .agents/skills/ricoh-grd3-zh/SKILL.md。
+先核对我的实际机型、模块版本和官方固件路径，再在电脑生成并运行 verify。
+只询问尚未提供的信息，不猜测；本次先准备文件，不写入存储卡或启动刷写。
+完成后报告输出目录、校验结果和补丁 SHA-256。
+```
+
+打开完整仓库后，Codex 可用 `$ricoh-grd3-zh`，Claude Code 可用 `/ricoh-grd3-zh`；腾讯 WorkBuddy 选择仓库工作目录后，可直接说“使用 ricoh-grd3-zh 技能”。详细安装、版本信息填写和调用边界见 [Agent 使用指南](docs/agents.md)。这些入口位于当前 `main` 分支，旧版 v0.1.0 Release 工具包不包含。
 
 ## 在电脑上生成
 
